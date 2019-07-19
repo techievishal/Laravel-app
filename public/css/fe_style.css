@@ -1,0 +1,35 @@
+.skin-blue  .navbar {
+    background-color: #3c8dbc;
+}
+
+.skin-blue  .navbar a{
+	color:#fff
+}
+
+
+.profile a{
+color:#000 !important;
+}
+.container{
+	padding:20px 0;
+}
+
+.thumbnail{
+    border: 1px solid #DADADA;
+    padding: 20px;
+    margin: 10px
+}
+.thumbnail h3{
+
+    font-size: 20px
+}
+
+.thumbnail img{
+
+    max-height: 150px
+}
+
+.thumbnail .description{
+    font-size: 14px;
+    color: #999999;
+}
