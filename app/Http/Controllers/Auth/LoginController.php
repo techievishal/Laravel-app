@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Socialite;
+use Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -21,11 +24,11 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/home';
 
     /**
      * Create a new controller instance.
@@ -36,4 +39,25 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+    /**
+ * Check user's role and redirect user based on their role
+ * @return 
+ */
+public function authenticated()
+{
+
+    $user=Auth::user();
+
+    
+    if($user->role_id == 1)
+    {
+        return redirect('/admin/home');
+    } 
+    //return $next($request);
+    return redirect('/');
+}
+
+ 
+
+    
 }
